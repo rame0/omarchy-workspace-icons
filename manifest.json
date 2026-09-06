@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "rame0.workspaces",
-  "name": "Workspace Icons",
+  "id": "rame0.workspace-icons",
+  "name": "Workspace Names & Monitors",
   "version": "1.0.0",
   "author": "rame0",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "barWidget": "Workspaces.qml"
   },
   "barWidget": {
-    "displayName": "Workspace Icons",
+    "displayName": "Workspace Names & Monitors",
     "description": "Named Hyprland workspaces in the bar, filtered per monitor",
     "category": "Compositor",
     "allowMultiple": false

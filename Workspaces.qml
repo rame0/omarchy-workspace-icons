@@ -16,7 +16,7 @@ import qs.Ui
 //    the single source of truth and nothing here needs updating alongside them.
 BarWidget {
   id: root
-  moduleName: "rame0.workspaces"
+  moduleName: "rame0.workspace-icons"
 
   // Display order for named workspaces, matching the old waybar bar. Named
   // workspaces missing from this list (🥁 has no monitor rule, so it shows up

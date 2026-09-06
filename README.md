@@ -1,4 +1,4 @@
-# Workspace Icons
+# Workspace Names & Monitors
 
 An [Omarchy](https://omarchy.org) bar widget (Quickshell / omarchy-shell) that
 shows **named** Hyprland workspaces, and shows each monitor only its own.
@@ -34,14 +34,14 @@ No external commands, services, or dependencies beyond the shell itself.
 
 ```bash
 git clone https://github.com/rame0/omarchy-workspace-icons \
-  ~/.config/omarchy/plugins/rame0.workspaces
-omarchy plugin enable rame0.workspaces
+  ~/.config/omarchy/plugins/rame0.workspace-icons
+omarchy plugin enable rame0.workspace-icons
 ```
 
-The directory name must be the plugin id, `rame0.workspaces`.
+The directory name must be the plugin id, `rame0.workspace-icons`.
 
 Then put it in the bar. In `~/.config/omarchy/shell.json`, replace
-`omarchy.workspaces` with `rame0.workspaces` in `bar.layout`:
+`omarchy.workspaces` with `rame0.workspace-icons` in `bar.layout`:
 
 ```json
 {
@@ -49,7 +49,7 @@ Then put it in the bar. In `~/.config/omarchy/shell.json`, replace
     "layout": {
       "left": [
         { "id": "omarchy.menu" },
-        { "id": "rame0.workspaces" },
+        { "id": "rame0.workspace-icons" },
         { "id": "omarchy.active-window" }
       ]
     }
@@ -84,8 +84,8 @@ rescanPlugins` forces a re-read.
 ## Uninstall
 
 ```bash
-omarchy plugin disable rame0.workspaces
-rm -rf ~/.config/omarchy/plugins/rame0.workspaces
+omarchy plugin disable rame0.workspace-icons
+rm -rf ~/.config/omarchy/plugins/rame0.workspace-icons
 ```
 
 Then put `omarchy.workspaces` back in `bar.layout` in
@@ -95,8 +95,8 @@ outside its own directory, so nothing else needs cleaning up.
 ## Develop
 
 ```bash
-omarchy plugin validate ~/.config/omarchy/plugins/rame0.workspaces
-qmllint -I /usr/share/omarchy/shell ~/.config/omarchy/plugins/rame0.workspaces/Workspaces.qml
+omarchy plugin validate ~/.config/omarchy/plugins/rame0.workspace-icons
+qmllint -I /usr/share/omarchy/shell ~/.config/omarchy/plugins/rame0.workspace-icons/Workspaces.qml
 omarchy-shell shell rescanPlugins
 ```
 
