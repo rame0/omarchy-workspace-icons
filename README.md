@@ -33,32 +33,24 @@ No external commands, services, or dependencies beyond the shell itself.
 ## Install
 
 ```bash
-git clone https://github.com/rame0/omarchy-workspace-icons \
-  ~/.config/omarchy/plugins/rame0.workspace-icons
-omarchy plugin enable rame0.workspace-icons
+omarchy plugin add https://github.com/rame0/omarchy-workspace-icons.git --enable
 ```
 
-The directory name must be the plugin id, `rame0.workspace-icons`.
+That clones, validates, and installs the plugin, then asks which bar section to
+place it in — pick **left**. To skip the prompts and place it exactly:
 
-Then put it in the bar. In `~/.config/omarchy/shell.json`, replace
-`omarchy.workspaces` with `rame0.workspace-icons` in `bar.layout`:
-
-```json
-{
-  "bar": {
-    "layout": {
-      "left": [
-        { "id": "omarchy.menu" },
-        { "id": "rame0.workspace-icons" },
-        { "id": "omarchy.active-window" }
-      ]
-    }
-  }
-}
+```bash
+omarchy plugin add https://github.com/rame0/omarchy-workspace-icons.git --yes
+omarchy plugin enable rame0.workspace-icons --section left --before omarchy.active-window
 ```
 
-Note that `shell.json` is **not** deep-merged with the defaults — once the file
-exists, the layout you write there is the whole layout.
+`--index N` and `--after <id>` work as alternatives to `--before`.
+
+Since this replaces the built-in workspaces widget, turn that one off:
+
+```bash
+omarchy plugin disable omarchy.workspaces
+```
 
 Named workspaces come from your Hyprland config, not from this widget. For
 example, in `~/.config/hypr/hyprland.lua`:
@@ -81,16 +73,24 @@ This is cosmetic only. Names absent from the list sort after it,
 alphabetically. Changes reload automatically; `omarchy-shell shell
 rescanPlugins` forces a re-read.
 
+Position in the bar is stored in `bar.layout` in `~/.config/omarchy/shell.json`
+and is easiest to change with `omarchy plugin enable` as shown above.
+
+## Update
+
+```bash
+omarchy plugin update rame0.workspace-icons
+```
+
 ## Uninstall
 
 ```bash
-omarchy plugin disable rame0.workspace-icons
-rm -rf ~/.config/omarchy/plugins/rame0.workspace-icons
+omarchy plugin remove rame0.workspace-icons
+omarchy plugin enable omarchy.workspaces --section left
 ```
 
-Then put `omarchy.workspaces` back in `bar.layout` in
-`~/.config/omarchy/shell.json` (or remove the entry). The widget writes nothing
-outside its own directory, so nothing else needs cleaning up.
+`remove` deletes the plugin and drops it from the bar layout. The widget writes
+nothing outside its own plugin directory, so nothing else needs cleaning up.
 
 ## Develop
 

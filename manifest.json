@@ -16,7 +16,8 @@
     "displayName": "Workspace Names & Monitors",
     "description": "Named Hyprland workspaces in the bar, filtered per monitor",
     "category": "Compositor",
-    "allowMultiple": false
+    "allowMultiple": false,
+    "defaultSection": "left"
   },
   "homepage": "https://github.com/rame0/omarchy-workspace-icons"
 }
