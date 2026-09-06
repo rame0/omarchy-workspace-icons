@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "rame0.workspaces",
+  "name": "Workspace Icons",
+  "version": "1.0.0",
+  "author": "rame0",
+  "license": "MIT",
+  "description": "Named Hyprland workspaces in the bar, filtered per monitor",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Workspaces.qml"
+  },
+  "barWidget": {
+    "displayName": "Workspace Icons",
+    "description": "Named Hyprland workspaces in the bar, filtered per monitor",
+    "category": "Compositor",
+    "allowMultiple": false
+  },
+  "homepage": "https://github.com/rame0/omarchy-workspace-icons"
+}
